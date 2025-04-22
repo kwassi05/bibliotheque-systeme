@@ -1,0 +1,18 @@
+<!-- src/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bibliothèque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenue dans la bibliothèque</h1>
+    <ul>
+        {% for livre in livres %}
+        <li>
+            <strong>{{ livre.titre }}</strong> — {{ livre.auteur }} [{{ 'Disponible' if livre.disponible else 'Emprunté' }}]
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
